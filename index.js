@@ -12,7 +12,7 @@ exports.handler = async(event, context, callback) => {
     const readFile = util.promisify(require('fs').readFile);
     
     await exec(`cp /var/task/ffmpeg/ffmpeg /tmp/.; chmod 755 /tmp/ffmpeg;`);
-    await exec(`mkdir /tmp/data`);
+    await exec(`mkdir -p /tmp/data`);
     await writeFile('/tmp/data/stereo.opus', Buffer.from(event.data,'base64'),{encoding: 'binary'});
     await exec('/tmp/ffmpeg -y -i /tmp/data/stereo.opus -acodec libopus -mode mono -ac 1 /tmp/data/mono.opus');
     const post = await readFile('/tmp/data/mono.opus');
