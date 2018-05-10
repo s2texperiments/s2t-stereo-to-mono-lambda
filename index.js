@@ -17,7 +17,7 @@ exports.handler = async(event, context, callback) => {
     await exec('/tmp/ffmpeg -y -i /tmp/data/stereo.opus -acodec libopus -mode mono -ac 1 /tmp/data/mono.opus');
     const post = await readFile('/tmp/data/mono.opus');
     
-    let respone = await fetch(`https://www.googleapis.com/upload/storage/v1/b/${process.env.BUCKET}${process.env.FILENAME}`, {
+    let response = await fetch(`https://www.googleapis.com/upload/storage/v1/b/${process.env.BUCKET}${process.env.FILENAME}`, {
         method: 'POST',
         body: post,
         headers: {
@@ -25,5 +25,5 @@ exports.handler = async(event, context, callback) => {
         }
     }).then((response) => response.json());
 
-    callback(null, googleResponse);
+    callback(null, response);
 };
