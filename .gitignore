@@ -1,3 +1,5 @@
 /ffmpeg
 /node_modules
 *.zip
+.env
+credentials.json

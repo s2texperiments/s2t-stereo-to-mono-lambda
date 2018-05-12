@@ -1,0 +1,23 @@
+{
+  "name": "s2t-stereo-to-mono-lambda",
+  "version": "1.0.0",
+  "description": "move static ffmpeg binaries into /ffmpeg",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s2texperiments/s2t-stereo-to-mono-lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s2texperiments/s2t-stereo-to-mono-lambda/issues"
+  },
+  "homepage": "https://github.com/s2texperiments/s2t-stereo-to-mono-lambda#readme",
+  "dependencies": {
+    "@google-cloud/storage": "^1.6.0",
+    "dotenv": "^5.0.1"
+  }
+}
